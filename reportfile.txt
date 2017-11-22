@@ -1,0 +1,34 @@
+Employee Payroll Report
+
+     Hourly Employees:
+     =================
+     Employee                   Pay    Hours      Gross       Tax      Net
+     Name                      Rate    Worked       Pay    Amount      Pay
+     ========                  ====    ======   =======    ======     =====
+     Davidson, Carl            8.75     38.00    332.50     49.88    282.63
+     Doe, John                17.00     46.50    845.75    126.86    718.89
+
+     Sub Total                25.75     84.50   1178.25    176.74   1001.51
+
+     Piece Work Employees:
+     =====================
+     Employee                  Rate/   Pieces     Gross       Tax      Net
+     Name                      Piece Produced       Pay    Amount      Pay
+     ========                  ====    ======   =======    ======     =====
+     Marion, Louise           13.00     40.00    520.00     78.00    442.00
+     Whittle, Ed              11.50     25.50    293.25     43.99    249.26
+
+     Sub Total                24.50     65.50    813.25    121.99    691.26
+
+     Salaried Employees:
+     ===================
+     Employee                   Pay    Hours      Gross       Tax      Net
+     Name                      Rate    Worked       Pay    Amount      Pay
+     ========                  ====    ======   =======    ======     =====
+     Prentiss, Paula          15.75     50.50    795.38    119.31    676.07
+
+     Sub Total                15.75     50.50    795.38    119.31    676.07
+
+     Grand Totals             66.00    200.50   2786.88    418.03   2368.84
+
+End of Report.

@@ -1,0 +1,18 @@
+The following records were processed: 
+
+101 Marion Louise 40.00 13.00 P
+PieceEmployee [pieces=40.0, rate=13.0]
+
+102 Davidson Carl 38.00 8.75 H
+HourlyEmployee [hours=38.0, rate=8.75]
+
+103 Whittle Ed 25.50 11.50 P
+PieceEmployee [pieces=25.5, rate=11.5]
+
+104 Doe John 46.50 17.00 H
+HourlyEmployee [hours=46.5, rate=17.0]
+
+105 Prentiss Paula 50.50 15.75 S
+SalariedEmployee [hours=50.5, rate=15.75]
+
+Total records processed: 5 
