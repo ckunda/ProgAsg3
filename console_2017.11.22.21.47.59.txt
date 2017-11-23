@@ -1,0 +1,99 @@
+Time Stamp of output: 2017.11.22.21.47.59
+
+EmployeeRecord Class Examples
+
+1. Employee Record (default) er:
+EmployeeRecord [empID=0, empType= , lastName=, firstName=, grossPay=0.0, fedTax=0.0, netPay=0.0]
+
+2. Employee Record (parameterized) er1:
+EmployeeRecord [empID=2, empType=H, lastName=Kunda, firstName=Chakra, grossPay=0.0, fedTax=0.0, netPay=0.0]
+
+3. Employee Record (clone) er1Dup:
+EmployeeRecord [empID=2, empType=H, lastName=Kunda, firstName=Chakra, grossPay=0.0, fedTax=0.0, netPay=0.0]
+
+Employee Class Examples
+
+1. Employee (default) e:
+HourlyEmployee [hours=0.0, rate=0.0]
+
+2. Employee (parameterized) e1:
+HourlyEmployee [hours=40.0, rate=9.99]
+
+3. Employee (cloned) e1Dup:
+HourlyEmployee [hours=1.0, rate=1.0]
+
+4. Employee e1 Calculate Gross Pay:
+HourlyEmployee [hours=40.0, rate=9.99]
+
+5. Employee e1 Calculate Taxes:
+HourlyEmployee [hours=40.0, rate=9.99]
+
+6. Employee e1 Calculate Net Pay:
+HourlyEmployee [hours=40.0, rate=9.99]
+
+Employees Class Examples
+
+1. Employees emps (empty object):
+Employees [emps=[]]
+
+2. Employees emps2:
+Employees [emps=[HourlyEmployee [hours=40.0, rate=9.99]]]
+
+3. Employees emps3 (created with er1 Employee Record object):
+Employees [emps=[HourlyEmployee [hours=0.0, rate=0.0]]]
+
+4. Employees emps4 (created with e1 Employee object):
+Employees [emps=[HourlyEmployee [hours=40.0, rate=9.99]]]
+
+Test three Add overloaded methods to emps employees object:
+
+emps object before adding:
+Employees [emps=[]]
+
+5. emps object after adding individual values:
+Employees [emps=[SalariedEmployee [salary=599.7, e=EmployeeRecord [empID=102, empType=S, lastName=Five, firstName=Jackson, grossPay=0.0, fedTax=0.0, netPay=0.0]]]]
+
+6. emps object after adding employee record er1:
+Employees [emps=[SalariedEmployee [salary=599.7, e=EmployeeRecord [empID=102, empType=S, lastName=Five, firstName=Jackson, grossPay=0.0, fedTax=0.0, netPay=0.0]], HourlyEmployee [hours=0.0, rate=0.0]]]
+
+7. emps object after adding employee e1:
+Employees [emps=[SalariedEmployee [salary=599.7, e=EmployeeRecord [empID=102, empType=S, lastName=Five, firstName=Jackson, grossPay=0.0, fedTax=0.0, netPay=0.0]], HourlyEmployee [hours=0.0, rate=0.0], HourlyEmployee [hours=40.0, rate=9.99]]]
+
+Test two Delete overloaded methods from emps employees object:
+
+8. emps object after deleting employee ID 102:
+Employees [emps=[HourlyEmployee [hours=0.0, rate=0.0], HourlyEmployee [hours=40.0, rate=9.99]]]
+
+9. Delete Emp 'Kunda' (first occurance only)
+Employees [emps=[HourlyEmployee [hours=40.0, rate=9.99]]]
+
+10. Added six more employees to emps:
+Employees [emps=[HourlyEmployee [hours=40.0, rate=9.99], HourlyEmployee [hours=30.0, rate=19.99], SalariedEmployee [salary=1229.59, e=EmployeeRecord [empID=104, empType=S, lastName=Showers, firstName=April, grossPay=0.0, fedTax=0.0, netPay=0.0]], PieceEmployee [pieces=60.0, rate=91.99], HourlyEmployee [hours=80.0, rate=1.0], HourlyEmployee [hours=40.0, rate=69.99], PieceEmployee [pieces=1.0, rate=0.01]]]
+
+11. 1.Search Emp ID 1: 0
+  2. Search Emp ID 2: -1 (null means not found)
+  3. Search Emp 'Kunda': 0
+  4. Search Emp 'KUNDA': 0
+  5. Search Emp 'oriented': 6
+  7. Search Emp 'titanic': -1
+
+12. Sorted (see above number 10 - before sort)
+Employees [emps=[HourlyEmployee [hours=30.0, rate=19.99], HourlyEmployee [hours=40.0, rate=9.99], HourlyEmployee [hours=40.0, rate=69.99], HourlyEmployee [hours=80.0, rate=1.0], PieceEmployee [pieces=60.0, rate=91.99], PieceEmployee [pieces=1.0, rate=0.01], SalariedEmployee [salary=1229.59, e=EmployeeRecord [empID=104, empType=S, lastName=Showers, firstName=April, grossPay=0.0, fedTax=0.0, netPay=0.0]]]]
+
+13. Iterate methods: start(), hasNext(), and getNext()
+EmployeeRecord [empID=103, empType=H, lastName=Five, firstName=Jackson, grossPay=0.0, fedTax=0.0, netPay=0.0]:HourlyEmployee [hours=30.0, rate=19.99]
+
+EmployeeRecord [empID=1, empType=H, lastName=Kunda, firstName=Chakra, grossPay=399.59998, fedTax=59.94, netPay=339.65997]:HourlyEmployee [hours=40.0, rate=9.99]
+
+EmployeeRecord [empID=107, empType=H, lastName=Moon, firstName=Blue, grossPay=0.0, fedTax=0.0, netPay=0.0]:HourlyEmployee [hours=40.0, rate=69.99]
+
+EmployeeRecord [empID=106, empType=H, lastName=Rider, firstName=Knight, grossPay=0.0, fedTax=0.0, netPay=0.0]:HourlyEmployee [hours=80.0, rate=1.0]
+
+EmployeeRecord [empID=105, empType=P, lastName=Forward, firstName=March, grossPay=0.0, fedTax=0.0, netPay=0.0]:PieceEmployee [pieces=60.0, rate=91.99]
+
+EmployeeRecord [empID=108, empType=P, lastName=Oriented, firstName=Object, grossPay=0.0, fedTax=0.0, netPay=0.0]:PieceEmployee [pieces=1.0, rate=0.01]
+
+EmployeeRecord [empID=104, empType=S, lastName=Showers, firstName=April, grossPay=0.0, fedTax=0.0, netPay=0.0]:SalariedEmployee [salary=1229.59, e=EmployeeRecord [empID=104, empType=S, lastName=Showers, firstName=April, grossPay=0.0, fedTax=0.0, netPay=0.0]]
+
+
+End of Tests.

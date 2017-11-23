@@ -33,7 +33,7 @@ public class Employees {
 			e = new HourlyEmployee(eID, eType, lName, fName, h, pr);
 			break;
 		case 'P':
-			e = new SalariedEmployee(eID, eType, lName, fName, h, pr);
+			e = new SalariedEmployee(eID, eType, lName, fName, h*pr);
 			break;
 		case 'S':
 			e = new PieceEmployee(eID, eType, lName, fName, h, pr);
@@ -53,7 +53,7 @@ public class Employees {
 			e = new HourlyEmployee(er, h, pr);
 			break;
 		case 'S':
-			e = new SalariedEmployee(er, h, pr);
+			e = new SalariedEmployee(er, h*pr);
 			break;
 		case 'P':
 			e = new PieceEmployee(er, h, pr);
@@ -86,7 +86,7 @@ public class Employees {
 			e = new HourlyEmployee(eID, eType, lName, fName, h, pr);
 			break;
 		case 'S':
-			e = new SalariedEmployee(eID, eType, lName, fName, h, pr);
+			e = new SalariedEmployee(eID, eType, lName, fName, h*pr);
 			break;
 		case 'P':
 			e = new PieceEmployee(eID, eType, lName, fName, h, pr);
@@ -105,7 +105,7 @@ public class Employees {
 			e = new HourlyEmployee(er, h, pr);
 			break;
 		case 'P':
-			e = new SalariedEmployee(er, h, pr);
+			e = new SalariedEmployee(er, h*pr);
 			break;
 		case 'S':
 			e = new PieceEmployee(er, h, pr);

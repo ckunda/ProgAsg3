@@ -5,26 +5,22 @@
  */
 public class SalariedEmployee extends Employee {
 
-	private float hours;
-	private float rate;
+	private float salary;
 /**
  * Default Constructor
  */
 	public SalariedEmployee() {
 		super();
-		hours = 0f;
-		rate = 0f;
+		salary = 0f;
 	}
 /**
  * Parameterized Constructor
  * @param er Employee Record
- * @param hrs Hours
- * @param ratep Pay Rate
+ * @param sal Salary
  */
-	public SalariedEmployee(EmployeeRecord er, float hrs, float ratep) {
+	public SalariedEmployee(EmployeeRecord er, float sal) {
 		super(er);
-		hours = hrs;
-		rate = ratep;
+		salary = sal;
 	}
 /**
  * Parameterized Constructor
@@ -32,14 +28,12 @@ public class SalariedEmployee extends Employee {
  * @param eType Employee Type
  * @param lName Last Name
  * @param fName First Name
- * @param hrs Hours 
- * @param ratep Pay Rate
+ * @param sal Salary
  */
 	public SalariedEmployee(int eID, char eType, String lName,
-			String fName, float hrs, float ratep) {
+			String fName, float sal) {
 		super(eID, eType, lName, fName);
-		hours = hrs;
-		rate = ratep;
+		salary = sal;
 	}
 /**
  * Copy Constructor
@@ -47,55 +41,37 @@ public class SalariedEmployee extends Employee {
  */
 	public SalariedEmployee(SalariedEmployee e) {
 		super(e.e);
-		hours = e.getHours();
-		rate = e.getRate();
+		salary = e.getSalary();
 	}
 /**
- * Get Hours
+ * Get Salary
  * @return
  */
-	public float getHours() {
-		return hours;
+	public float getSalary() {
+		return salary;
 	}
 /** 
- * Set Hours
- * @param hours
+ * Set Salary
+ * @param salary
  */
-	public void setHours(float hours) {
-		this.hours = hours;
-	}
-/**
- * Get Pay Rate
- * @return
- */
-	public float getRate() {
-		return rate;
-	}
-/**
- * Set Pay Rate
- * @param rate
- */
-	public void setRate(float rate) {
-		this.rate = rate;
+	public void setHours(float salary) {
+		this.salary = salary;
 	}
 /**
  * Calculate Gross Pay
  */
 	@Override
 	public void calcGross() {
-		e.grossPay = hours * rate;
+		e.grossPay = salary;
 	}
-/**
- * Return fields in printable format
- */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("SalariedEmployee [hours=");
-		builder.append(hours);
-		builder.append(", rate=");
-		builder.append(rate);
-		builder.append("]");
-		return builder.toString();
-	}
+@Override
+public String toString() {
+	StringBuilder builder = new StringBuilder();
+	builder.append("SalariedEmployee [salary=");
+	builder.append(salary);
+	builder.append(", e=");
+	builder.append(e);
+	builder.append("]");
+	return builder.toString();
+}
 }

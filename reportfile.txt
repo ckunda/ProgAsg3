@@ -22,13 +22,13 @@ Employee Payroll Report
 
      Salaried Employees:
      ===================
-     Employee                   Pay    Hours      Gross       Tax      Net
-     Name                      Rate    Worked       Pay    Amount      Pay
-     ========                  ====    ======   =======    ======     =====
-     Prentiss, Paula          15.75     50.50    795.38    119.31    676.07
+     Employee                              Salary/Gross       Tax      Net
+     Name                                           Pay    Amount      Pay
+     ========                                   =======    ======     =====
+     Prentiss, Paula                             795.38    119.31    676.07
 
-     Sub Total                15.75     50.50    795.38    119.31    676.07
+     Sub Total                                   795.38    119.31    676.07
 
-     Grand Totals             66.00    200.50   2786.88    418.03   2368.84
+     Grand Totals                               2786.88    418.03   2368.84
 
 End of Report.

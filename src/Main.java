@@ -107,7 +107,7 @@ public class Main {
 				e = new HourlyEmployee(empID, eType, lastName, firstName, hours, payRate);
 				break;
 			case 'S':
-				e = new SalariedEmployee(empID, eType, lastName, firstName, hours, payRate);
+				e = new SalariedEmployee(empID, eType, lastName, firstName, hours*payRate);
 				break;
 			case 'P':
 				e = new PieceEmployee(empID, eType, lastName, firstName, hours, payRate);
@@ -142,8 +142,6 @@ public class Main {
 		float sFedTax = 0f;
 		float sNetPay = 0f;
 		
-		float gHours = 0f;
-		float gPayRate = 0f;
 		float gGrossPay = 0f;
 		float gFedTax = 0f;
 		float gNetPay = 0f;
@@ -161,7 +159,6 @@ public class Main {
 		emps.start();
 		while(emps.hasNext()) {
 			int i = emps.getNext();
-//			System.out.println(emps.getEmployee(i).e + ":" + emps.getEmployee(i));
 			
 			// Employee Type changed, print sub totals and new headings
 			currEmpType = emps.getEmployee(i).e.empType;
@@ -169,9 +166,13 @@ public class Main {
 				
 				if (prevEmpType != ' ') {
 					lastName = "Sub Total";
-					report.printf("\n     %-20s %9.2f %9.2f %9.2f %9.2f %9.2f\n\n",
-						lastName, sPayRate, sHours,
-						sGrossPay, sFedTax, sNetPay);
+					if (prevEmpType == 'S')
+						report.printf("\n     %-20s             %9.2f %9.2f %9.2f\n\n",
+								lastName, sGrossPay, sFedTax, sNetPay);
+					else
+						report.printf("\n     %-20s %9.2f %9.2f %9.2f %9.2f %9.2f\n\n",
+								lastName, sPayRate, sHours,
+								sGrossPay, sFedTax, sNetPay);
 				}
 
 				// Clear sub totals
@@ -200,11 +201,11 @@ public class Main {
 					report.println(dl);
 					dl = "     ===================";
 				    report.println(dl);
-					dl = "     Employee                   Pay    Hours      Gross       Tax      Net";
+					dl = "     Employee                              Salary/Gross       Tax      Net";
 					report.println(dl);
-					dl = "     Name                      Rate    Worked       Pay    Amount      Pay";
+					dl = "     Name                                           Pay    Amount      Pay";
 					report.println(dl);
-					dl = "     ========                  ====    ======   =======    ======     =====";
+					dl = "     ========                                   =======    ======     =====";
 					report.println(dl);
 					break;
 				case 'P':
@@ -227,7 +228,6 @@ public class Main {
 			switch (currEmpType) {
 			case 'H':
 				HourlyEmployee hEmp = (HourlyEmployee) emps.getEmployee(i);
-				empID = hEmp.e.empID;
 				lastName = hEmp.e.lastName;
 				firstName = hEmp.e.firstName;
 				payRate = hEmp.getRate();
@@ -238,18 +238,16 @@ public class Main {
 				break;
 			case 'S':
 				SalariedEmployee salEmp = (SalariedEmployee) emps.getEmployee(i);
-				empID = salEmp.e.empID;
 				lastName = salEmp.e.lastName;
 				firstName = salEmp.e.firstName;
-				payRate = salEmp.getRate();
-				hours = salEmp.getHours();
+				payRate = 0f;
+				hours = 0f;
 				grossPay = salEmp.e.grossPay;
 				fedTax = salEmp.e.fedTax;
 				netPay = salEmp.e.netPay;
 				break;
 			case 'P':
 				PieceEmployee pEmp = (PieceEmployee) emps.getEmployee(i);
-				empID = pEmp.e.empID;
 				lastName = pEmp.e.lastName;
 				firstName = pEmp.e.firstName;
 				payRate = pEmp.getRate();
@@ -263,7 +261,11 @@ public class Main {
 			// Print Employee Detail 
 			
 			String fullName = lastName + ", " + firstName;
-			report.printf("     %-20s %9.2f %9.2f %9.2f %9.2f %9.2f\n",
+			if (currEmpType == 'S')
+				report.printf("     %-20s                     %9.2f %9.2f %9.2f\n",
+						fullName, grossPay, fedTax, netPay);
+			else	
+				report.printf("     %-20s %9.2f %9.2f %9.2f %9.2f %9.2f\n",
 					fullName, payRate, hours, grossPay, fedTax, netPay);
 
 			// Accumulate Sub Totals
@@ -273,25 +275,26 @@ public class Main {
 			sFedTax += fedTax;
 			sNetPay += netPay;
 			
-			// Accumulate Grand Totals
-			gHours += hours;
-			gPayRate += payRate;
 			gGrossPay += grossPay;
 			gFedTax += fedTax;
 			gNetPay += netPay;
 		}
 		
-		// Print Sub Total for current employee type
+		// Print Sub Total for current/last employee type
 		lastName = "Sub Total";
-		report.printf("\n     %-20s %9.2f %9.2f %9.2f %9.2f %9.2f\n\n",
-				lastName, sPayRate, sHours,
-				sGrossPay, sFedTax, sNetPay);
+		if (prevEmpType == 'S')
+			report.printf("\n     %-20s                     %9.2f %9.2f %9.2f\n\n",
+					lastName, sGrossPay, sFedTax, sNetPay);
+		else
+			report.printf("\n     %-20s %9.2f %9.2f %9.2f %9.2f %9.2f\n\n",
+					lastName, sPayRate, sHours,
+					sGrossPay, sFedTax, sNetPay);
 
 		//   Print Report Totals
 		lastName = "Grand Totals";
-		report.printf("     %-20s %9.2f %9.2f %9.2f %9.2f %9.2f\n",
-				lastName, gPayRate, gHours,
-				gGrossPay, gFedTax, gNetPay);
+//		report.printf("     %-20s %9.2f %9.2f %9.2f %9.2f %9.2f\n",
+		report.printf("     %-20s                     %9.2f %9.2f %9.2f\n",
+				lastName, gGrossPay, gFedTax, gNetPay);
 
 		//   Print Report Averages
 //		int i = totalRecords;

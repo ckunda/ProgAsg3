@@ -13,6 +13,6 @@ PieceEmployee [pieces=25.5, rate=11.5]
 HourlyEmployee [hours=46.5, rate=17.0]
 
 105 Prentiss Paula 50.50 15.75 S
-SalariedEmployee [hours=50.5, rate=15.75]
+SalariedEmployee [salary=795.375, e=EmployeeRecord [empID=105, empType=S, lastName=Prentiss, firstName=Paula, grossPay=795.375, fedTax=119.30625, netPay=676.0687]]
 
 Total records processed: 5 
